@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BillingController;
 use App\Http\Controllers\Api\ClinicalModulesController;
+use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\DrugController;
 use App\Http\Controllers\Api\EncounterController;
 use App\Http\Controllers\Api\FacilityController;
@@ -139,6 +140,28 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('permission:orders.create');
     Route::post('/orders/{order}/cancel', [OrderController::class, 'cancel'])
         ->middleware('permission:orders.create');
+
+    // Documents & Attachments (patients, encounters, clinical orders)
+    Route::get('/document-categories', [DocumentController::class, 'categories'])
+        ->middleware('permission:documents.view');
+    Route::get('/patients/{patient}/documents', [DocumentController::class, 'indexForPatient'])
+        ->middleware('permission:documents.view');
+    Route::post('/patients/{patient}/documents', [DocumentController::class, 'storeForPatient'])
+        ->middleware('permission:documents.upload');
+    Route::get('/encounters/{encounter}/documents', [DocumentController::class, 'indexForEncounter'])
+        ->middleware('permission:documents.view');
+    Route::post('/encounters/{encounter}/documents', [DocumentController::class, 'storeForEncounter'])
+        ->middleware('permission:documents.upload');
+    Route::get('/orders/{order}/documents', [DocumentController::class, 'indexForOrder'])
+        ->middleware('permission:documents.view');
+    Route::post('/orders/{order}/documents', [DocumentController::class, 'storeForOrder'])
+        ->middleware('permission:documents.upload');
+    Route::get('/documents/{document}', [DocumentController::class, 'show'])
+        ->middleware('permission:documents.view');
+    Route::get('/documents/{document}/download', [DocumentController::class, 'download'])
+        ->middleware('permission:documents.view');
+    Route::delete('/documents/{document}', [DocumentController::class, 'destroy'])
+        ->middleware('permission:documents.delete');
 
     // Module 7: Clinical Billing & Claims
     Route::get('/invoices', [BillingController::class, 'indexInvoices'])

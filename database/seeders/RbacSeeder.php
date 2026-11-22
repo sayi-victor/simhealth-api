@@ -19,6 +19,7 @@ class RbacSeeder extends Seeder
             'calendar' => ['calendar.view', 'calendar.manage'],
             'pharmacy' => ['prescriptions.view', 'prescriptions.create', 'pharmacy.dispense'],
             'orders' => ['orders.view', 'orders.create', 'orders.result'],
+            'documents' => ['documents.view', 'documents.upload', 'documents.delete'],
             'billing' => ['billing.view', 'billing.manage', 'claims.manage'],
             'inventory' => ['inventory.view', 'inventory.manage'],
             'reports' => ['reports.view'],
@@ -50,6 +51,7 @@ class RbacSeeder extends Seeder
                     'calendar.view', 'calendar.manage',
                     'prescriptions.view', 'prescriptions.create',
                     'orders.view', 'orders.create', 'reports.view',
+                    'documents.view', 'documents.upload', 'documents.delete',
                 ],
             ],
             'nurse' => [
@@ -59,6 +61,7 @@ class RbacSeeder extends Seeder
                     'facilities.view', 'patients.view', 'patients.update',
                     'encounters.view', 'encounters.create', 'encounters.update',
                     'calendar.view', 'prescriptions.view', 'orders.view',
+                    'documents.view', 'documents.upload',
                 ],
             ],
             'front_desk' => [
@@ -67,6 +70,7 @@ class RbacSeeder extends Seeder
                 'permissions' => [
                     'facilities.view', 'patients.view', 'patients.create', 'patients.update',
                     'calendar.view', 'calendar.manage', 'billing.view',
+                    'documents.view', 'documents.upload',
                 ],
             ],
             'billing' => [
@@ -75,6 +79,7 @@ class RbacSeeder extends Seeder
                 'permissions' => [
                     'facilities.view', 'patients.view', 'encounters.view',
                     'billing.view', 'billing.manage', 'claims.manage', 'reports.view',
+                    'documents.view', 'documents.upload',
                 ],
             ],
             'lab' => [
@@ -82,6 +87,7 @@ class RbacSeeder extends Seeder
                 'description' => 'Order fulfillment and diagnostic results',
                 'permissions' => [
                     'facilities.view', 'patients.view', 'orders.view', 'orders.result',
+                    'documents.view', 'documents.upload',
                 ],
             ],
             'pharmacy' => [
@@ -90,6 +96,7 @@ class RbacSeeder extends Seeder
                 'permissions' => [
                     'facilities.view', 'patients.view', 'prescriptions.view',
                     'pharmacy.dispense', 'inventory.view', 'inventory.manage',
+                    'documents.view',
                 ],
             ],
             'inventory' => [

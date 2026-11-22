@@ -57,6 +57,7 @@ SPA's `VITE_API_BASE_URL` at this API, e.g. `http://localhost:8000/api`.
 | Calendar | `/api/appointments`, `/api/appointment-categories` | scheduling, status flow, check-in |
 | Pharmacy | `/api/drugs`, `/api/prescriptions` | formulary, lots, prescribing, FEFO dispensing |
 | Orders | `/api/orders`, `/api/order-catalog` | lab, imaging, procedures, results, review |
+| Documents | `/api/patients/{id}/documents`, `/api/encounters/{id}/documents`, `/api/orders/{id}/documents`, `/api/documents/{id}`, `/api/document-categories` | attachments, upload, authorized download, delete |
 | Clinical | `/api/wards`, `/api/admissions`, `/api/surgeries`, `/api/immunizations` | inpatient, theatre, vaccination |
 | Billing | `/api/invoices`, `/api/claims` | charges, payments, claims, adjudication |
 | Inventory | `/api/warehouses`, `/api/inventory-items` | stock ledger |
